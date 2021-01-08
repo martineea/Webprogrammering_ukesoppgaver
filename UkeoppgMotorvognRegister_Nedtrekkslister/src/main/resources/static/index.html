@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ukeoppgave Motorvognregister</title>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="index.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Motorvognregister</h1>
+            <form class="form">
+                <div class="form-group">
+                    <label for="personnr">Personnr</label>
+                    <input type="text" class="form-control" id="personnr"/>
+                </div>
+                <div class="form-group">
+                    <label for="navn">Navn</label>
+                    <input type="text" class="form-control" id="navn"/>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse">
+                </div>
+                <div class="form-group">
+                    <label for="kjennetegn">Kjennetegn</label>
+                    <input type="text" class="form-control" id="kjennetegn">
+                </div>
+                <div class="form-group">
+                    <label>Bilmerke</label>
+                    <div id="bilmerkene" class="dropdown"></div>
+                </div>
+                <div class="form-group">
+                    <label>Biltype</label>
+                    <div id="biltypene" class="dropdown"></div>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick="registrer()">Registrer</button><br/>
+        </div>
+        <div class="col-md-8">
+            <h3>Alle bilene:</h3>
+            <div id="bilene" class="table-responsive"></div>
+            <button class="btn btn-danger" onclick="slettAlle()">Slett alle biler</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

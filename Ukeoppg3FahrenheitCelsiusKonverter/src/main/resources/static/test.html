@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="tall1"/> +
+<input type="text" id="tall2"/> =
+<span id="resultat"></span><br/>
+<button onclick="regnut()">Regn ut</button>
+Ganger 10 : <input type="checkbox" id="ganger" onchange="regnut()"/>
+<script type="application/javascript">
+    function regnut() {
+        const streng1 = document.getElementById("tall1").value;
+        const streng2 = document.getElementById("tall2").value;
+        const tall1 = Number(streng1);
+        const tall2 = Number(streng2);
+        const ganger = document.getElementById("ganger"); // merk ikke value, men hele objektet.
+        if (isNaN(tall1) || (isNaN(tall2))) {
+            document.getElementById("resultat").innerHTML = "<b>Ikke tall i input</b>";
+        } else {
+            let tall3 = tall1 + tall2;
+            if (ganger.checked) {
+                tall3 *= 10;
+            }
+            document.getElementById("resultat").innerText = tall3;
+        }
+        // prøv uten Number!
+    }
+</script>
+</body>
+</html>

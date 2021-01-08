@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery-bibliotek -->
+<head>
+    <meta charset="UTF-8">
+    <title>Hei</title>
+</head>
+<body>
+<h1>Kunde</h1>
+Skriv inn navnet :<input type="text" id="navn"/><br/>
+Skriv inn adressen :<input type="text" id="adresse"/><br/>
+<button onclick="hentData()">Trykk her</button>
+<br/>
+Fornavn : <span id="utNavn"></span><br/>
+Etternavn : <span id="utAdresse"></span>
+
+<script type="application/javascript">
+    function hentData() {
+        const kunde = { // dette er et objekt
+            navn: $("#navn").val(),
+            adresse: $("#adresse").val()
+        };
+        $.post("/", kunde, function (data) {
+            $("#utNavn").html(data.navn);
+            $("#utAdresse").html(data.adresse);
+        });
+    }
+</script>
+</body>
+</html>

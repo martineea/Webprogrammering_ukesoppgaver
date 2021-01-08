@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ukesoppgave 3</title>
+    <script src="Konverterer.js"></script>
+</head>
+<body>
+
+<!--Oppgave 1: Input navn og alder-->
+
+<p>Skriv inn navn og alder: </p>
+<input type="text" id="navn" placeholder="Navn"/> <br/>
+<input type="text" id="alder" placeholder="Alder"/> <br/>
+<button value="TrykkMeg" onclick="skrivUt()">Trykk meg</button>
+<br/><br/>
+<span id="utskrift"></span>
+
+<p>-----------------------------------------------------------</p>
+
+<!--Oppgave 2: Konverterer fra farenheit til celsius-->
+
+Konverterer temperatur:
+<p><input type="text" id="innFahrenheit" placeholder="Fahrenheit" oninput="konverter('F')"> grader fahrenheit</p>
+<p><input type="text" id="innCelsius" placeholder="Celsius" oninput="konverter('C')"> grader celsius</p>
+
+<p>-----------------------------------------------------------</p>
+
+<!--Oppgave 3: Kalkulator for +, -, * og / -->
+
+<p>Kalkulator:</p>
+<input type="text" id="innTall1" placeholder="Skriv inn ett tall">
+<br/>
+<input type="text" id="innTall2" placeholder="Skriv inn et tall til">
+<br/><br/>
+<button id="pluss" onclick="regnUt('+')">+</button>
+<button id="minus" onclick="regnUt('-')">-</button>
+<button id="multiplisere" onclick="regnUt('*')">*</button>
+<button id="dividere" onclick="regnUt('/')">/</button>
+<p>Utregning: <span id="utregning"></span></p>
+
+<p>-----------------------------------------------------------</p>
+
+<!--Oppgave 4: Personregister -->
+
+<form id="reset">
+    <table>
+        <tr>
+            <td>Navn</td>
+            <td><input type="text" id="registrerNavn"/>
+                <span id="feilNavn" style="color:red"></span><br/></td>
+            <br/>
+        </tr>
+        <tr>
+            <td>Adresse</td>
+            <td><input type="text" id="registrerAdresse"/>
+                <span id="feilAdresse" style="color:red"></span><br/></td>
+        </tr>
+        <tr>
+            <td>Telefonnr</td>
+            <td><input type="text" id="registrerTelefonnr"/>
+                <span id="feilTelefonnr" style="color:red"></span><br/></td>
+        </tr>
+    </table>
+</form>
+<br/>
+
+<button onclick="registrer()">Registrer</button>
+<button onclick="visPersonRegister()">Vis personregister</button>
+<button onclick="skjulPersonRegister()">Skjul personregister</button>
+<br/><br/>
+<div id="personRegister"></div>
+
+
+</body>
+</html>

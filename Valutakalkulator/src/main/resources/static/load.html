@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Initialisering av valutaer (Spring ukeoppgave 2)</title>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+        function last() { // denne skal kun trigge en GetMapping, og ikke laste inn noe
+            $.get("/load", function () {
+            });
+        }
+    </script>
+</head>
+<body>
+
+<p>Last valutaregister på server</p>
+<button onclick="last()">Last</button>
+
+</body>
+</html>

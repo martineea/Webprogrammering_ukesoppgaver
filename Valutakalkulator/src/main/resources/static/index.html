@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valutakonvertering</title>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+        function hentValuta() {
+            const sort = $("#sort").val();
+            const kurs = $("#verdi").val();
+
+            // lage et objekt
+            const valuta = {
+                "sort": sort,
+                kurs: kurs
+            };
+
+            // sende dette objektet over til apache Tomcat-serveren
+            $.get("/konverter", valuta, function (NOK) {
+                const ut = kurs + " i " + sort + " blir " + NOK + " kr.";
+                // putte dette inn i div-en
+                $("#resultat").html(ut);
+            });
+        }
+    </script>
+</head>
+<body>
+
+<p>Beregn norske kroner</p>
+
+<table>
+    <tr>
+        <td>Valutasort (SEK, USD, EUR)</td>
+        <td><input type="text" id="sort"/></td>
+    </tr>
+    <tr>
+        <td>
+            Verdi
+        </td>
+        <td>
+            <input type="text" id="verdi"/>
+        </td>
+    </tr>
+</table>
+
+<button onclick="hentValuta()">Regn om til NOK</button>
+<div id="resultat"></div>
+
+</body>
+</html>

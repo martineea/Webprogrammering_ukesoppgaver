@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="index.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Motorvognregister</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Motorvognregister</h1>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="personnr">Personnr</label>
+                        <input type="text" class="form-control" id="personnr"/>
+                        <span id="personnrFeil" style="color:red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="navn">Navn</label>
+                        <input type="text" class="form-control" id="navn"/>
+                        <span id="navnFeil" style="color:red"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" class="form-control" id="adresse">
+                        <span id="adresseFeil" style="color:red"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="kjennetegn">Kjennetegn</label>
+                        <input type="text" class="form-control" id="kjennetegn">
+                        <span id="kjennetegnFeil" style="color:red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="bilMerkene">Bilmerke</label>
+                        <div id="bilmerkene" class="dropdown"></div>
+                        <span id="merkeFeil" style="color:red"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="bilmodellene">Bilmodell</label>
+                        <div id="bilmodellene" class="dropdown"></div>
+                        <span id="modellFeil" style="color:red"></span>
+                    </div>
+                </form>
+                <button class="btn btn-primary" onclick="registrer()">Registrer</button><br/>
+            </div>
+            <div class="col-md-8">
+                <h3>Alle bilene:</h3>
+                <div id="bilene" class="table-responsive"></div>
+                <div id="feil" style="color: red"></div>
+                <button class="btn btn-danger" onclick="slettAlle()">Slett alle biler</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

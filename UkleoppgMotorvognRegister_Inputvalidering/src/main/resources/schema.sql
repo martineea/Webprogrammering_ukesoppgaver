@@ -1,0 +1,19 @@
+CREATE TABLE Register
+(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    personnr VARCHAR(30) NOT NULL,
+    navn VARCHAR(30) NOT NULL,
+    adresse VARCHAR(30) NOT NULL,
+    kjennetegn VARCHAR (30) NOT NULL,
+    merke VARCHAR(30) NOT NULL,
+    modell VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Bil
+(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    merke VARCHAR(30) NOT NULL,
+    modell VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
+);

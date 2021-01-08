@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery-bibliotek -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ukesoppgave Spring Boot</title>
+</head>
+<body>
+<h1>Måned</h1>
+Skriv inn måned: <input type="text" id="måned"/><br/>
+<button onclick="regMåned()">Trykk her!</button>
+<br/>
+Temperaturen den måneden var:
+<div id="utTemperatur"></div>
+
+<script type="application/javascript">
+
+    function regMåned() {
+        const måned = {
+            januar: $("#måned").val(),
+            februar: $("#måned").val(),
+            mars: $("#måned").val(),
+            april: $("#måned").val(),
+            mai: $("#måned").val(),
+            juni: $("#måned").val(),
+            juli: $("#måned").val(),
+            august: $("#måned").val(),
+            september: $("#måned").val(),
+            oktober: $("#måned").val(),
+            november: $("#måned").val(),
+            desember: $("#måned").val(),
+        };
+        $.post("/inn", måned, function () {
+            visTemperatur();
+        });
+        $("#måned").val(""); //tømmer input
+    }
+
+    function visTemperatur(måned) {
+        $.get("/vis", function (data) {
+            let ut = "";
+
+            for (const måned of måneder) {
+                switch (måned) {
+                    case måned.januar = tempArray.findIndex[0]:
+                        break;
+                        ut += måned.januar;
+                    case måned.februar = tempArray[1]:
+                        break;
+                    case måned.mars = tempArray[2]:
+                        break;
+                    case måned.april = tempArray[3]:
+                        break;
+                    case måned.mai = tempArray[4]:
+                        break;
+                    case måned.juni = tempArray[5]:
+                        break;
+                    case måned.juli = tempArray[6]:
+                        break;
+                    case måned.august = tempArray[7]:
+                        break;
+                    case måned.september = tempArray[8]:
+                        break;
+                    case måned.oktober = tempArray[9]:
+                        break;
+                    case måned.november = tempArray[10]:
+                        break;
+                    case måned.desember = tempArray[11]:
+                        break;
+                }
+            }
+            ut += $("#utTemperatur").html(måned);
+        });
+    }
+</script>
+
+</body>
+</html>

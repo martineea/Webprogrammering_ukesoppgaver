@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gjennomgang i timen av ukesoppgave</title>
+    <script type="application/javascript">
+
+        // OPPGAVE 1: -------------------------------------------------
+
+        function printInfo() {
+            let navn = document.getElementById("navn1").value;
+            let alder = document.getElementById("alder").value;
+
+            let alderTall = Number(alder);
+
+            if (isNaN(alderTall) || alderTall <= 0) {
+                alert("Alder må være et tall større enn 0!")
+            } else {
+                document.getElementById("output").innerHTML = navn + " er " + alder + " år gammel.";
+            }
+        }
+
+
+        // OPPGAVE 2: -------------------------------------------------
+
+        function fToC(fahrenheit) {
+            // gjør konverteringen:
+            let c = (5 / 9) * (fahrenheit - 32)
+            // skriver ut:
+            let cFelt = document.getElementById("celsius");
+            cFelt.value = c;
+        }
+
+        function cToF(celsius) {
+            let f = (9 / 5) * celsius + 32
+
+            let fFelt = document.getElementById("fahrenheit");
+            fFelt.value = f;
+        }
+
+
+        // OPPGAVE 3: -------------------------------------------------
+
+        function pluss() {
+            let in_1 = parseFloat(document.getElementById("in_1").value);
+            let in_2 = parseFloat(document.getElementById("in_2").value);
+
+            let output = document.getElementById("kalk-output");
+
+            output.innerHTML = in_1 + in_2;
+        }
+
+        function minus() {
+            let in_1 = parseFloat(document.getElementById("in_1").value);
+            let in_2 = parseFloat(document.getElementById("in_2").value);
+
+            let output = document.getElementById("kalk-output");
+
+            output.innerHTML = in_1 - in_2;
+        }
+
+        function gange() {
+            let in_1 = parseFloat(document.getElementById("in_1").value);
+            let in_2 = parseFloat(document.getElementById("in_2").value);
+
+            let output = document.getElementById("kalk-output");
+
+            output.innerHTML = in_1 * in_2;
+        }
+
+        function dele() {
+            let in_1 = parseFloat(document.getElementById("in_1").value);
+            let in_2 = parseFloat(document.getElementById("in_2").value);
+
+            let output = document.getElementById("kalk-output");
+
+            output.innerHTML = in_1 / in_2;
+        }
+
+
+        // OPPGAVE 4: -------------------------------------------------
+
+        const personRegister = [];
+
+        function registrer() {
+            const navn = document.getElementById("navn").value;
+            const adresse = document.getElementById("adresse").value;
+            const telefonnummer = document.getElementById("telefonnummer").value;
+
+            const person = {
+                navn: navn,
+                adresse: adresse,
+                telefonnr: telefonnummer
+            };
+
+            personRegister.push(person);
+
+            document.getElementById("navn").value = "";
+            document.getElementById("adresse").value = "";
+            document.getElementById("telefonnummer").value = "";
+
+            visPersonRegister();
+        }
+
+        function visPersonRegister() {
+            // skriv ut
+            let ut = "<table><tr>" +
+                "<th>Navn</th><th>Adresse</th><th>Telefonnr</th>" +
+                "</tr>";
+            for (let p of personRegister) {
+                ut += "<tr>";
+                ut += "<td>" + p.navn + "</td><td>" + p.adresse + "</td><td>" + p.telefonnr + "</td>";
+                ut += "</tr>";
+            }
+            document.getElementById("personRegister").innerHTML = ut;
+        }
+    </script>
+</head>
+<body>
+
+<!--OPPGAVE 1 ------------------------------------------------- -->
+
+<h2>Oppgave 1</h2>
+Navn: <input type="text" id="navn1"/><br/>
+Alder: <input type="text" id="alder"/><br/>
+<button onclick="printInfo()">Skriv ut info</button>
+<div id="output"></div>
+
+<br/>
+
+<!--OPPGAVE 2 ------------------------------------------------- -->
+
+<h2>Oppgave 2</h2>
+Fahrenheit: <input type="text" id="fahrenheit" onchange="fToC(this.value)"/><br/>
+Celsius: <input type="text" id="celsius" onchange="cToF(this.value)"/><br/>
+
+<br/>
+
+<!--OPPGAVE 3 ------------------------------------------------- -->
+
+<h2>Oppgave 3</h2>
+<input id="in_1" type="number" value=""/>
+<input id="in_2" type="number" value=""/>
+<button onclick="pluss()">+</button>
+<button onclick="minus()">-</button>
+<button onclick="gange()">*</button>
+<button onclick="dele()">/</button>
+<br/>
+<div id="kalk-output"></div>
+
+<br/>
+
+<!--OPPGAVE 4 ------------------------------------------------- -->
+
+<table>
+    <tr>
+        <td>Navn:</td>
+        <td><input type="text" id="navn"/></td>
+    </tr>
+    <tr>
+        <td>Adresse:</td>
+        <td><input type="text" id="adresse"/></td>
+    </tr>
+    <tr>
+        <td>Telefonnummer:</td>
+        <td><input type="text" id="telefonnummer"/></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="registrer()">Registrer</button>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<button onclick="visPersonRegister()">Vis personregister</button>
+<div id="personRegister"></div>
+</body>
+</html>
